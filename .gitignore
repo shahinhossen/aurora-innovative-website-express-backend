@@ -48,3 +48,4 @@ debug/
 # Other ignored files
 *.pid
 *.seed
+.vercel
