@@ -7,7 +7,7 @@ const { uploadSingle } = require("./middleweres/multer");
 const courseRoute = require("./routes/course.route");
 const modulesRoute = require("./routes/courseModule.route");
 const userRouter = require("./routes/user.route");
-const auth = require("./middleweres/auth");
+const adminRouter = require("./routes/admin.route");
 require("dotenv").config();
 
 
@@ -20,13 +20,20 @@ app.use(cookie());
 
 connectDB();
 
-//route
+//routes
+
+// admin routes
+app.use("/aurora/api/v1/admin", adminRouter)
+
 
 app.use("/api/v1/skills", uploadSingle, skillsRoute);
+
 
 app.use("/api/v1/course", courseRoute);
 
 app.use("/api/v1/course/module", modulesRoute);
+
+// user routes
 
 app.use("/user", userRouter)
 

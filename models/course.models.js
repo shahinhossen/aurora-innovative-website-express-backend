@@ -5,7 +5,7 @@ const courseSchema = new mongoose.Schema(
     thumbnail: {
       type: String,
       require: true,
-      default: "https://placehold.co/600x400/000000/FFFFFF/png"
+      default: "https://placehold.co/600x400/000000/FFFFFF/png",
     },
     title: {
       type: String,
@@ -26,6 +26,10 @@ const courseSchema = new mongoose.Schema(
       required: true,
       default: "0",
     },
+    finalPrice: {
+      type: String,
+      default: "0",
+    },
     category: {
       type: String,
       required: true,
@@ -40,8 +44,8 @@ const courseSchema = new mongoose.Schema(
     student: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-      }
+        ref: "User",
+      },
     ],
     quickLook: [
       {

@@ -7,10 +7,11 @@ const {
   deleteCourse,
 } = require("../controllers/course.controller");
 const { uploadSingle } = require("../middleweres/multer");
+const Auth = require("../middleweres/Auth");
 
 const router = express.Router();
 
-router.post("/add", uploadSingle, addCourse);
+router.post("/add", Auth, uploadSingle, addCourse);
 
 router.get("/single/:id", getCourseById);
 
